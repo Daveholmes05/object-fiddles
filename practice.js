@@ -271,7 +271,13 @@ MakePerson('Dave', 'January', 111-11-1111);
 // Create a function called MakeCard which takes in cardNumber, expirationDate, and securityCode to make a Credit Card object and returns that object so that whenever you invoke MakeCard, you get a brand new credit card.
 
   //Code Here
-
+function MakeCard(cardNumber, expirationDate, securityCode) {
+  return {
+    cardNumber: cardNumber,
+    expirationDate: expirationDate,
+    securityCode: securityCode
+  }
+}
 
 
 //NEXT PROBLEM
@@ -284,3 +290,20 @@ MakePerson('Dave', 'January', 111-11-1111);
 */
 
   //Code Here
+// function bindCard(MakePerson, MakeCard) {
+//   return {
+//     MakePerson: MakePerson,
+//     MakeCard: MakeCard
+//   }
+//   return MakePerson.merge(MakeCard);
+// }
+
+
+function bindCard(person, creditCard) {
+  var paymentMethod = person;
+
+  for (var prop in creditCard) {
+    paymentMethod[prop] = creditCard[prop];
+  };
+return paymentMethod;
+}
