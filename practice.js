@@ -80,11 +80,21 @@ Instead, console.log your whole backPack object and then check out the console. 
 //Create an 'alsoMe' object with the following properties name, age, height, gender, married, eyeColor, hairColor. Fill those properties in with the appropriate values.
 
   //Code Here
-
+var alsoMe = {
+  name: "Dave",
+  age: 29,
+  height: "6'2\"",
+  gender: "Male",
+  married: "Yes",
+  eyeColor: "Blue",
+  hairColor: "Brown"
+};
 //Now, loop through your object and alert every value. *Tyler --> 24 --> 6'0 --> Male, etc etc
 
   //Code Here
-
+for (var value in alsoMe) {
+    // alert(alsoMe[value]);
+}
 
 
 
@@ -96,10 +106,18 @@ Instead, console.log your whole backPack object and then check out the console. 
 //Create an Object called 'album' with 5 keys named different song titles that you make up, with the values being the length of each song.
 
   //Code Here
-
+var album = {
+  Rocks: "3:52",
+  Water: "2:32",
+  Cars: "1:44",
+  Birds: "9:53",
+  Fire: "4:12"
+};
 //Now, loop through your album object alerting every song title individually.
-
+for (var prop in album) {
+  // alert(prop);
   //Code Here
+}
 
 
 
@@ -112,10 +130,21 @@ Instead, console.log your whole backPack object and then check out the console. 
 //Create an object called states that has 5 US states as properties with the values being their population (doesn't have to be accurate).
 
   //Code Here
+var states = {
+  Utah: 300,
+  California: 1000000,
+  Arizona: 500,
+  Oregon: 9,
+  Nevada: 20
+};
 
 //Now, loop through your states object and if the states population is greater than 30K, alert that state.
-
+for (var value in states) {
+  if (states[value] > 30000) {
+    // alert(value);
+  }
   //Code Here
+}
 
 
 
@@ -137,11 +166,27 @@ var user1 = {
 that each value is truthy. If it's not truthy, remove it from the object. */
 
   //Code Here
+  //truthy shorthand
+for (var value in user1) {
+  if (!(user1[value])) {
+    delete user1[value];
+  }
+}
 
+//for falsey shorthand:
+// for (var value in user1) {
+//   if (!(user1[value])) {
+//     delete user1[value];
+//   }
+// }
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
 
   //Code Here
-
+user1 = {
+  name: 'Dave Holmes',
+  username: 'daveholmes',
+  age: 29
+}
 
 
 
@@ -165,11 +210,12 @@ var user2 = {
 // name -> 'Tyler S. McGinnis', email -> 'tyler.mcginnis@devmounta.in'. Make that change.
 
   //Code Here
-
+user2.name = 'Tyler S. McGinnis';
+user2.email = 'tyler.mcginnis@devmounta.in';
 //Now call the sayName method that's on the user object which will alert the users email
 
   //Code Here
-
+// user2.sayName();
 
 
 
@@ -181,17 +227,25 @@ var user2 = {
 //Create an empty object called methodCollection.
 
   //Code Here
+var methodCollection = {};
 
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
-
+methodCollection.alertHello = function() {
+  alert('hello');
   //Code Here
+};
+
+methodCollection.logHello = function() {
+  console.log('hello');
+};
 
 //Now call your alertHello and logHello methods.
 
   //Code Here
-
+// methodCollection.alertHello();
+// methodCollection.logHello();
 
 
 //NEXT PROBLEM
@@ -201,8 +255,14 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // Create a function called MakePerson which takes in name, birthday, ssn as its parameters and returns a new object with all of the information that you passed in.
 
   //Code Here
-
-
+function MakePerson(name, birthday, ssn) {
+  return {
+    name: name,
+    birthday: birthday,
+    ssn: ssn
+  }
+}
+MakePerson('Dave', 'January', 111-11-1111);
 
 //NEXT PROBLEM
 
